@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PRETO ⚜️ LEONE</title>
+    <link rel="preload" as="image" href="/ink_hero_transparent.webp" type="image/webp">
+    <link rel="stylesheet" href="/estilo.css">
+    <link rel="stylesheet" href="/modales_glass.css">
+</head>
+<body>
+
+    <nav class="top-nav" aria-label="Navegación principal">
+        <div class="top-nav-group">
+            <a href="#top">PL</a>
+            <a href="#catalogo">obras</a>
+            <a href="#disponibles">disponibles</a>
+        </div>
+        <div class="top-nav-group">
+            <a href="#faq" data-open-modal="modal-faq">faq</a>
+            <a href="#agendar" data-open-modal="modal-agendar">agendar</a>
+            <a href="#ubicacion">estudio</a>
+        </div>
+    </nav>
+
+    <header class="hero-editorial" id="top">
+        <div class="ink-stage" id="ink-stage">
+            <img class="ink-fallback" id="ink-fallback" src="/ink_hero_transparent.webp" alt="Tinta Preto Leone">
+            <canvas id="ink-webgl"></canvas>
+        </div>
+        <h1>PRETO ⚜️ LEONE</h1>
+    </header>
+
+    <div class="marquee-wrap" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-chunk">// ART WITHOUT A VOICE DIES // BLACKWORK &amp; MICROREALISMO // ART WITHOUT A VOICE DIES // BLACKWORK &amp; MICROREALISMO </span>
+            <span class="marquee-chunk">// ART WITHOUT A VOICE DIES // BLACKWORK &amp; MICROREALISMO // ART WITHOUT A VOICE DIES // BLACKWORK &amp; MICROREALISMO </span>
+        </div>
+    </div>
+
+    <h2 class="section-heading">MI ARTE, MI VOZ</h2>
+
+    <div class="filtros-estilo" id="filtros-estilo" role="tablist" aria-label="Filtrar obras por estilo"></div>
+
+    <section id="catalogo" aria-label="Catálogo de tatuajes de Preto Leone">
+        <!-- Cargado incrementalmente por lotes desde app.js -->
+    </section>
+
+    <div id="catalogo-estado" aria-live="polite"></div>
+
+    <!-- SECCIÓN DISPONIBLES & CURADOS -->
+    <section class="editorial-section" id="disponibles" aria-label="Diseños disponibles y calidad en piel">
+        <h2 class="section-heading">DISPONIBLES &amp; CALIDAD EN PIEL</h2>
+
+        <div class="spotlight-grid">
+            <article class="spotlight-card">
+                <div class="spotlight-media">
+                    <img class="spotlight-img" id="img-flash-preview" src="/catalogo/thumbs/Df-HVtgJeWA_2.webp" data-orig="/catalogo/imagenes/Df-HVtgJeWA_2.jpg" alt="Hoja de diseños disponibles Flash de Preto Leone" loading="lazy" decoding="async">
+                </div>
+                <div class="spotlight-body">
+                    <div>
+                        <span class="spotlight-kicker">DISEÑOS DISPONIBLES · FLASH</span>
+                        <h3>Piezas Únicas</h3>
+                        <p>Piezas originales listas para tatuar sin repetir. Reserva directa por WhatsApp sin esperas en DM.</p>
+                    </div>
+                    <div class="spotlight-actions">
+                        <button type="button" class="obra-btn-detalles" id="btn-flash-hd">
+                            <span>Ver hoja en HD</span><span>↗</span>
+                        </button>
+                        <a class="obra-btn-detalles obra-btn-solido" href="https://wa.me/18492506008?text=Hola%20Preto%20Leone%2C%20vi%20los%20dise%C3%B1os%20disponibles%20en%20tu%20web%20y%20quiero%20reservar%20uno." target="_blank" rel="noopener noreferrer">
+                            <span>Reservar diseño</span><span>↗</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="spotlight-card">
+                <div class="spotlight-media">
+                    <img class="spotlight-img" id="img-curados-preview" src="/catalogo/thumbs/De-TA61mg98.webp" data-orig="/catalogo/imagenes/De-TA61mg98.jpg" alt="Tatuaje Blackwork sólido y puntillismo de Preto Leone" loading="lazy" decoding="async">
+                </div>
+                <div class="spotlight-body">
+                    <div>
+                        <span class="spotlight-kicker">CURADOS &amp; LINEWORK</span>
+                        <h3>Cicatrización Limpia</h3>
+                        <p>Tinta negra sólida y puntillismo diseñado para cicatrizar limpio. Sección lista para la galería de piezas curadas del estudio.</p>
+                    </div>
+                    <div class="spotlight-actions">
+                        <button type="button" class="obra-btn-detalles" id="btn-filtrar-blackwork">
+                            <span>Filtrar Blackwork</span><span>↑</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="editorial-section" id="faq" aria-label="Preguntas frecuentes">
+        <h2 class="section-heading">PREGUNTAS FRECUENTES</h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>¿Cómo cotizar y apartar mi cita?</summary>
+                <div class="faq-body">
+                    No se agendan citas por DM. Completa el pre-cotizador de abajo con tu idea, zona y tamaño aproximado para enviarlo directo a WhatsApp (<strong>+1 849-250-6008</strong>). Las fechas se aseguran con depósito previo.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>¿En qué estilos trabaja Preto Leone?</summary>
+                <div class="faq-body">
+                    Especialidad en Blackwork sólido, puntillismo (dotwork), Anime &amp; Manga, Oriental/Japonés, Neotradicional y Realismo/Microrealismo en grises.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Cómo prepararme antes de la sesión?</summary>
+                <div class="faq-body">
+                    Duerme bien la noche anterior, llega bien alimentado, mantén la piel hidratada los días previos y evita alcohol durante las 24 horas anteriores a tu cita.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Dónde queda el estudio?</summary>
+                <div class="faq-body">
+                    En el estudio <strong>@tattooariumrd</strong> (República Dominicana). Puedes abrir la ruta exacta aquí: <a href="https://maps.apple/p/Ws0LK5TAzq8mr5" target="_blank" rel="noopener noreferrer">Ver ubicación en Mapa ↗</a>.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- PRE-COTIZADOR WHATSAPP & HUB DEL ESTUDIO -->
+    <section class="editorial-section" id="agendar" aria-label="Agendar cita y contacto">
+        <div class="agenda-grid">
+            <div id="ubicacion">
+                <h2 class="section-heading section-heading-left">AGENDA TU PROYECTO</h2>
+                <p class="agenda-lead">
+                    Sin esperas ni mensajes perdidos por DM. Estructura tu proyecto en segundos y envía todos los detalles listos para cotizar directo al WhatsApp del estudio.
+                </p>
+                <div class="studio-links">
+                    <div class="studio-dato"><span>Estudio</span><strong>@tattooariumrd</strong></div>
+                    <a class="studio-link" href="https://wa.me/18492506008" target="_blank" rel="noopener noreferrer">
+                        <span>WhatsApp Cotizaciones (+1 849-250-6008)</span><span>↗</span>
+                    </a>
+                    <a class="studio-link" href="https://www.instagram.com/pretoleonee/" target="_blank" rel="noopener noreferrer">
+                        <span>Instagram Oficial (@pretoleonee)</span><span>↗</span>
+                    </a>
+                    <a class="studio-link" href="https://www.tiktok.com/@herculesel_leon" target="_blank" rel="noopener noreferrer">
+                        <span>TikTok (@herculesel_leon · 334K+)</span><span>↗</span>
+                    </a>
+                    <a class="studio-link" href="https://maps.apple/p/Ws0LK5TAzq8mr5" target="_blank" rel="noopener noreferrer">
+                        <span>Ubicación en Mapa</span><span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <form id="form-cotizar" class="cotizar-form">
+                <div class="cotizar-row">
+                    <div class="campo-form">
+                        <label for="cot-nombre">Nombre</label>
+                        <input id="cot-nombre" name="nombre" type="text" required placeholder="Tu nombre">
+                    </div>
+                    <div class="campo-form">
+                        <label for="cot-estilo">Estilo</label>
+                        <select id="cot-estilo" name="estilo">
+                            <option value="Blackwork">Blackwork</option>
+                            <option value="Anime y Manga">Anime y Manga</option>
+                            <option value="Neotradicional">Neotradicional</option>
+                            <option value="Realismo &amp; Microrealismo">Realismo &amp; Microrealismo</option>
+                            <option value="Diseño Disponible (Flash)">Diseño Disponible (Flash)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cotizar-row">
+                    <div class="campo-form">
+                        <label for="cot-zona">Zona del cuerpo</label>
+                        <input id="cot-zona" name="zona" type="text" required placeholder="Ej: Antebrazo, espalda, hombro...">
+                    </div>
+                    <div class="campo-form">
+                        <label for="cot-tamano">Tamaño aproximado</label>
+                        <input id="cot-tamano" name="tamano" type="text" required placeholder="Ej: 15 cm, media manga...">
+                    </div>
+                </div>
+
+                <div class="campo-form">
+                    <label for="cot-idea">Idea / referencia</label>
+                    <textarea id="cot-idea" name="idea" rows="3" placeholder="Describe tu idea o personaje..."></textarea>
+                </div>
+
+                <button type="submit" class="obra-btn-detalles obra-btn-solido">
+                    <span>Enviar cotización por WhatsApp</span><span>↗</span>
+                </button>
+
+                <div id="cot-feedback" class="cot-feedback" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        PRETO ⚜️ LEONE · MI ARTE, MI VOZ · @tattooariumrd
+    </footer>
+
+    <!-- Visor Modal Galería -->
+    <div id="visor-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="visor-titulo" tabindex="-1">
+        <div class="visor-header">
+            <div class="visor-info">
+                <h2 id="visor-titulo"></h2>
+                <span id="visor-contador"></span>
+            </div>
+            <div class="visor-header-acciones">
+                <a id="visor-ig-link" href="#" target="_blank" rel="noopener noreferrer">Ver en Instagram ↗</a>
+                <button id="btn-cerrar" type="button" aria-label="Cerrar galería">×</button>
+            </div>
+        </div>
+
+        <div class="visor-stage" id="visor-stage">
+            <button id="btn-anterior" type="button" aria-label="Foto anterior">‹</button>
+            <div class="visor-foto-wrap">
+                <div id="visor-spinner" aria-hidden="true"></div>
+                <img id="foto-grande" src="" alt="">
+            </div>
+            <button id="btn-siguiente" type="button" aria-label="Foto siguiente">›</button>
+        </div>
+
+        <div class="visor-tira-wrap oculto" id="visor-tira-wrap">
+            <span class="visor-tira-label">Fotos de esta misma obra</span>
+            <div id="visor-tira" role="tablist" aria-label="Miniaturas relacionadas"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL GLASS: AGENDAR / PRE-COTIZADOR
+         ========================================== -->
+    <div id="modal-agendar" class="glass-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="glass-modal-dialog" tabindex="-1">
+            <div class="glass-modal-header">
+                <div>
+                    <div class="glass-modal-meta">// PRETO LEONE · AGENDA PRIVADA</div>
+                    <h2 class="glass-modal-title">AGENDA TU PROYECTO</h2>
+                    <p class="glass-modal-lead">
+                        Estructura tu proyecto en segundos. Se abrirá WhatsApp con los detalles listos para cotizar directamente con el artista.
+                    </p>
+                </div>
+                <button type="button" class="glass-modal-close" aria-label="Cerrar modal" data-close-modal>×</button>
+            </div>
+
+            <form id="glass-form-cotizar">
+                <div class="glass-form-grid">
+                    <div class="glass-field-group">
+                        <label for="modal-cot-nombre">Tu Nombre</label>
+                        <input id="modal-cot-nombre" name="nombre" type="text" required placeholder="Ej: Carlos Silva">
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="modal-cot-estilo">Estilo deseado</label>
+                        <select id="modal-cot-estilo" name="estilo">
+                            <option value="Blackwork">Blackwork</option>
+                            <option value="Anime y Manga">Anime y Manga</option>
+                            <option value="Neotradicional">Neotradicional</option>
+                            <option value="Realismo &amp; Microrealismo">Realismo &amp; Microrealismo</option>
+                            <option value="Diseño Disponible (Flash)">Diseño Disponible (Flash)</option>
+                        </select>
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="modal-cot-zona">Zona del cuerpo</label>
+                        <input id="modal-cot-zona" name="zona" type="text" required placeholder="Ej: Antebrazo, hombro...">
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="modal-cot-tamano">Tamaño aproximado</label>
+                        <input id="modal-cot-tamano" name="tamano" type="text" required placeholder="Ej: 15 cm, media manga...">
+                    </div>
+                    <div class="glass-field-group glass-form-full">
+                        <label for="modal-cot-idea">Idea / Referencia del diseño</label>
+                        <textarea id="modal-cot-idea" name="idea" rows="3" placeholder="Describe brevemente el concepto, personajes o elementos que imaginas..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="glass-btn-submit">
+                    <span>Enviar cotización por WhatsApp</span>
+                    <span class="arrow">↗</span>
+                </button>
+
+                <div id="glass-cot-feedback" class="glass-feedback" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL GLASS: PREGUNTAS FRECUENTES (FAQ)
+         ========================================== -->
+    <div id="modal-faq" class="glass-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="glass-modal-dialog" tabindex="-1">
+            <div class="glass-modal-header">
+                <div>
+                    <div class="glass-modal-meta">// PRETO LEONE · GUÍA DEL CLIENTE</div>
+                    <h2 class="glass-modal-title">PREGUNTAS FRECUENTES</h2>
+                    <p class="glass-modal-lead">
+                        Información esencial sobre el proceso, el estudio y los cuidados antes de tu cita.
+                    </p>
+                </div>
+                <button type="button" class="glass-modal-close" aria-label="Cerrar modal" data-close-modal>×</button>
+            </div>
+
+            <div class="glass-faq-list">
+                <details class="glass-faq-item" open>
+                    <summary>¿Cómo cotizar y apartar mi cita?</summary>
+                    <div class="glass-faq-body">
+                        No se agendan citas por DM de Instagram o TikTok. Completa el formulario de <strong>Agendar</strong> con tu idea, zona y tamaño para enviarlo directo al WhatsApp del estudio (<strong>+1 849-250-6008</strong>). Las fechas se aseguran con depósito de reserva.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿En qué estilos se especializa Preto Leone?</summary>
+                    <div class="glass-faq-body">
+                        Especialidad exclusiva en <strong>Blackwork</strong> sólido, microrealismo, <strong>Anime &amp; Manga</strong> de alto contraste, Neotradicional y proyectos con fuerte carga conceptual y líneas de precisión.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿Cómo debo prepararme para la sesión?</summary>
+                    <div class="glass-faq-body">
+                        Descansa bien la noche anterior, asiste bien alimentado e hidratado, evita el consumo de alcohol 24 horas antes y no expongas la zona al sol en los días previos.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿Dónde está ubicado el estudio?</summary>
+                    <div class="glass-faq-body">
+                        En el estudio <strong>@tattooariumrd</strong> (República Dominicana). Puedes consultar la ubicación exacta en el mapa a través de este <a href="https://maps.apple/p/Ws0LK5TAzq8mr5" target="_blank" rel="noopener noreferrer">enlace de mapas ↗</a>.
+                    </div>
+                </details>
+            </div>
+
+            <div class="glass-modal-footer">
+                <span>¿Tienes una consulta específica?</span>
+                <a href="https://wa.me/18492506008" target="_blank" rel="noopener noreferrer">Contactar directamente por WhatsApp ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/modales_glass.js" defer></script>
+    <script src="/app.js" defer></script>
+</body>
+</html>

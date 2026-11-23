@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio: Modales Glassmorphism Preto Leone</title>
+    <link rel="stylesheet" href="../estilo.css">
+    <link rel="stylesheet" href="./modales_glass.css">
+    <style>
+        .lab-banner {
+            background: #111;
+            color: #c5a059;
+            padding: 10px 20px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        .lab-hero-spacer {
+            height: 1200px;
+            background: linear-gradient(180deg, #d9d9d9 0%, #bfbfbf 50%, #a6a6a6 100%);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lab-scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #111;
+            color: #fff;
+            padding: 8px 16px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="lab-banner">
+        <span>[LABORATORIO DE PRUEBAS ISOLADAS] Preto Leone Glass Modals</span>
+        <span>Status: <strong id="lab-status">LISTO</strong></span>
+    </div>
+
+    <!-- Navegación simulada idéntica a la barra principal -->
+    <header class="top-nav" style="position: sticky; top: 0; background: rgba(217,217,217,0.95); z-index: 100;">
+        <div class="top-nav-group">
+            <span class="nav-brand">PRETO LEONE</span>
+        </div>
+        <div class="top-nav-group">
+            <a id="test-nav-faq" href="#faq">faq</a>
+            <a id="test-nav-agendar" href="#agendar">agendar</a>
+            <a href="#ubicacion">estudio</a>
+        </div>
+    </header>
+
+    <div class="lab-hero-spacer">
+        <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-top: 40px;">ZONA DE PRUEBAS DE SCROLL & MODALES</h1>
+        <p style="max-width: 600px; text-align: center; color: #444;">
+            Haz clic en <strong>"agendar"</strong> o <strong>"faq"</strong> en la barra superior. 
+            El navegador <strong>NO</strong> debe scrollear ni saltar. 
+            Debe desplegar la ventana con efecto de cristal (Glassmorphism).
+        </p>
+        <div style="margin-top: 20px; display: flex; gap: 15px;">
+            <button class="obra-btn-detalles obra-btn-solido" onclick="window.PretoModales.open('modal-agendar')">
+                Abrir Agendar (Directo)
+            </button>
+            <button class="obra-btn-detalles" onclick="window.PretoModales.open('modal-faq')">
+                Abrir FAQ (Directo)
+            </button>
+        </div>
+        <div style="margin-top: 500px; color: #666; font-family: monospace;">
+            [Contenido intermedio de la página para medir scroll - Y: 600px]
+        </div>
+    </div>
+
+    <div class="lab-scroll-indicator" id="scroll-display">
+        Scroll Y: 0px
+    </div>
+
+    <!-- ==========================================
+         MODAL GLASS: AGENDAR / PRE-COTIZADOR
+         ========================================== -->
+    <div id="modal-agendar" class="glass-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="glass-modal-dialog">
+            <div class="glass-modal-header">
+                <div>
+                    <div class="glass-modal-meta">// PRETO LEONE · AGENDA PRIVADA</div>
+                    <h2 class="glass-modal-title">AGENDA TU PROYECTO</h2>
+                    <p class="glass-modal-lead">
+                        Estructura tu proyecto en segundos. Se abrirá WhatsApp con los detalles listos para cotizar directamente con el artista.
+                    </p>
+                </div>
+                <button type="button" class="glass-modal-close" aria-label="Cerrar modal" data-close-modal>×</button>
+            </div>
+
+            <form id="glass-form-cotizar">
+                <div class="glass-form-grid">
+                    <div class="glass-field-group">
+                        <label for="lab-cot-nombre">Tu Nombre</label>
+                        <input id="lab-cot-nombre" name="nombre" type="text" required placeholder="Ej: Carlos Silva">
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="lab-cot-estilo">Estilo deseado</label>
+                        <select id="lab-cot-estilo" name="estilo">
+                            <option value="Blackwork">Blackwork</option>
+                            <option value="Anime y Manga">Anime y Manga</option>
+                            <option value="Neotradicional">Neotradicional</option>
+                            <option value="Realismo & Microrealismo">Realismo & Microrealismo</option>
+                            <option value="Diseño Disponible (Flash)">Diseño Disponible (Flash)</option>
+                        </select>
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="lab-cot-zona">Zona del cuerpo</label>
+                        <input id="lab-cot-zona" name="zona" type="text" required placeholder="Ej: Antebrazo, hombro...">
+                    </div>
+                    <div class="glass-field-group">
+                        <label for="lab-cot-tamano">Tamaño aproximado</label>
+                        <input id="lab-cot-tamano" name="tamano" type="text" required placeholder="Ej: 15 cm, media manga...">
+                    </div>
+                    <div class="glass-field-group glass-form-full">
+                        <label for="lab-cot-idea">Idea / Referencia del diseño</label>
+                        <textarea id="lab-cot-idea" name="idea" rows="3" placeholder="Describe brevemente el concepto, personajes o elementos que imaginas..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="glass-btn-submit">
+                    <span>Enviar cotización por WhatsApp</span>
+                    <span class="arrow">↗</span>
+                </button>
+
+                <div id="glass-cot-feedback" class="glass-feedback" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL GLASS: PREGUNTAS FRECUENTES (FAQ)
+         ========================================== -->
+    <div id="modal-faq" class="glass-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="glass-modal-dialog">
+            <div class="glass-modal-header">
+                <div>
+                    <div class="glass-modal-meta">// PRETO LEONE · GUÍA DEL CLIENTE</div>
+                    <h2 class="glass-modal-title">PREGUNTAS FRECUENTES</h2>
+                    <p class="glass-modal-lead">
+                        Información esencial sobre el proceso, el estudio y los cuidados antes de tu cita.
+                    </p>
+                </div>
+                <button type="button" class="glass-modal-close" aria-label="Cerrar modal" data-close-modal>×</button>
+            </div>
+
+            <div class="glass-faq-list">
+                <details class="glass-faq-item" open>
+                    <summary>¿Cómo cotizar y apartar mi cita?</summary>
+                    <div class="glass-faq-body">
+                        No se agendan citas por DM de Instagram o TikTok. Completa el formulario de <strong>Agendar</strong> con tu idea, zona y tamaño para enviarlo directo al WhatsApp del estudio (<strong>+1 849-250-6008</strong>). Las fechas se aseguran con depósito de reserva.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿En qué estilos se especializa Preto Leone?</summary>
+                    <div class="glass-faq-body">
+                        Especialidad exclusiva en <strong>Blackwork</strong> sólido, microrealismo, <strong>Anime & Manga</strong> de alto contraste, Neotradicional y proyectos con fuerte carga conceptual y líneas de precisión.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿Cómo debo prepararme para la sesión?</summary>
+                    <div class="glass-faq-body">
+                        Descansa bien la noche anterior, asiste bien alimentado e hidratado, evita el consumo de alcohol 24 horas antes y no expongas la zona al sol en los días previos.
+                    </div>
+                </details>
+
+                <details class="glass-faq-item">
+                    <summary>¿Dónde está ubicado el estudio?</summary>
+                    <div class="glass-faq-body">
+                        En el estudio <strong>@tattooariumrd</strong> (República Dominicana). Puedes consultar la ubicación exacta en el mapa a través de este <a href="https://maps.apple/p/Ws0LK5TAzq8mr5" target="_blank" rel="noopener noreferrer">enlace de mapas ↗</a>.
+                    </div>
+                </details>
+            </div>
+
+            <div class="glass-modal-footer">
+                <span>¿Tienes una consulta específica?</span>
+                <a href="https://wa.me/18492506008" target="_blank" rel="noopener noreferrer">Contactar directamente por WhatsApp ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./modales_glass.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const disp = document.getElementById('scroll-display');
+            if (disp) disp.innerText = `Scroll Y: ${Math.round(window.scrollY)}px`;
+        });
+    </script>
+</body>
+</html>

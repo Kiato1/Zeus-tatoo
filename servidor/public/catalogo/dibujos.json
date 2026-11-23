@@ -1,0 +1,68 @@
+[
+  {
+    "id": "flash-01",
+    "titulo": "Daga Serpiente Neo-Gothic",
+    "estilo": "Blackwork",
+    "imagen_url": "/catalogo/imagenes/DR5HNbaEWXI.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Diseño exclusivo disponible para antebrazo o pantorrilla."
+  },
+  {
+    "id": "flash-02",
+    "titulo": "Máscara Demonio Hannya Cyber",
+    "estilo": "Anime y Manga",
+    "imagen_url": "/catalogo/imagenes/CwlPRImu3ag.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Flash único estilo Cyber Sigilism y Blackwork Anime."
+  },
+  {
+    "id": "flash-03",
+    "titulo": "León Realista & Geometría Sagrada",
+    "estilo": "Realismo y Microrealismo",
+    "imagen_url": "/catalogo/imagenes/DEOKuyiS9S8.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Composición de alto impacto y sombras suaves."
+  },
+  {
+    "id": "flash-04",
+    "titulo": "Ojo de la Providencia Micro-Realismo",
+    "estilo": "Realismo y Microrealismo",
+    "imagen_url": "/catalogo/imagenes/DF9PEkYuWYf.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Detalles finos en alto contraste."
+  },
+  {
+    "id": "flash-05",
+    "titulo": "Calavera & Espinas Medieval",
+    "estilo": "Blackwork",
+    "imagen_url": "/catalogo/imagenes/DBMbjEzSoNh.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Texturas grabadas en técnica medieval oscura."
+  },
+  {
+    "id": "flash-06",
+    "titulo": "Gojo Void Hollow Flash",
+    "estilo": "Anime y Manga",
+    "imagen_url": "/catalogo/imagenes/C1AdsAzOGMj.jpg",
+    "precio": "Disponible",
+    "precio_estimado": "Consultar",
+    "artista": "Preto Leone",
+    "estado": "disponible",
+    "descripcion": "Trazo sólido para brazo o muslo."
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "preto-leone",
+    "nombre": "PRETO LEONE",
+    "rol": "Master Artist & Founder",
+    "estilo": "Realismo, Blackwork & Anime Tattoo",
+    "bio": "Especialista en alto contraste, sombras profundas e ilustración de impacto. Creador de la marca Preto Leone.",
+    "foto": "/catalogo/imagenes/DF6acP8vLdu.jpg",
+    "instagram": "https://instagram.com/pretoleonee",
+    "tiktok": "https://www.tiktok.com/@herculesel_leon"
+  },
+  {
+    "id": "hendy-gaia",
+    "nombre": "HENDY GAIA",
+    "rol": "Resident Artist",
+    "estilo": "Solid, clean traditional patterns and local designs",
+    "bio": "Líneas sólidas tradicionales, contrastes limpios y motivos botánicos locales.",
+    "foto": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop",
+    "instagram": "https://instagram.com/pretoleonee"
+  },
+  {
+    "id": "jasmine-jade",
+    "nombre": "JASMINE JADE",
+    "rol": "Resident Artist",
+    "estilo": "Gothic and medieval imagery, botany and surrealism",
+    "bio": "Estética oscura medieval, grabados antiguos y surrealismo botánico.",
+    "foto": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop",
+    "instagram": "https://instagram.com/pretoleonee"
+  },
+  {
+    "id": "will-campbell",
+    "nombre": "WILL CAMPBELL",
+    "rol": "Guest Artist",
+    "estilo": "Detailed illustrations and fine lines, bold artwork",
+    "bio": "Ilustración detallada, finas líneas y trabajo negro de alto impacto.",
+    "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop",
+    "instagram": "https://instagram.com/pretoleonee"
+  }
+]
