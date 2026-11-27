@@ -14,6 +14,12 @@
 /404.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/legal
+  Cache-Control: public, max-age=0, must-revalidate
+
+/legal.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.css
   Cache-Control: public, max-age=0, must-revalidate
 

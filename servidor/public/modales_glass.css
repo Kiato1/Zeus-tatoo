@@ -225,6 +225,20 @@ body.modal-abierto {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
 
+/* Nota legal compacta sobre envío directo a WhatsApp y +18 */
+.glass-legal-note {
+    margin: 0.1rem 0 0.45rem;
+    font-size: 0.74rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.glass-legal-note a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* Botón de acción principal (WhatsApp) */
 .glass-btn-submit {
     display: flex;
