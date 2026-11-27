@@ -4,7 +4,6 @@
 // UTILIDADES DE RUTAS, MODO DEMO STANDALONE Y SEGURIDAD
 // ============================================================
 const AVATAR_WEBP = window.__DEMO_AVATAR__ || '/catalogo/artista_avatar.webp';
-const ES_FILE_LOCAL = window.location.protocol === 'file:';
 
 function stemDeRuta(u) {
     const clean = String(u || '').split('?')[0];
@@ -18,7 +17,7 @@ function toThumbUrl(u) {
         if (window.__DEMO_IMGS__[key]) return window.__DEMO_IMGS__[key];
     }
     return String(u || '')
-        .replace('/catalogo/imagenes/', '/catalogo/thumbs/')
+        .replace(/\/catalogo\/(?:imagenes|thumbs|hd)\//, '/catalogo/thumbs/')
         .replace(/\.[^.\/]+$/, '.webp');
 }
 
@@ -28,7 +27,7 @@ function toHdUrl(u) {
         if (window.__DEMO_IMGS__[key]) return window.__DEMO_IMGS__[key];
     }
     return String(u || '')
-        .replace('/catalogo/imagenes/', '/catalogo/hd/')
+        .replace(/\/catalogo\/(?:imagenes|thumbs|hd)\//, '/catalogo/hd/')
         .replace(/\.[^.\/]+$/, '.webp');
 }
 
@@ -408,7 +407,6 @@ const btnSiguiente = document.getElementById('btn-siguiente');
 let obraActual = null;
 let fotosHdActual = [];
 let fotosThumbActual = [];
-let fotosOrigActual = [];
 let indiceActual = 0;
 let visorLoadToken = 0;
 let elementoDisparador = null;
@@ -458,7 +456,7 @@ function mostrarFoto(indice) {
     visorSpinner.classList.add('visible');
 
     const urlHd = fotosHdActual[indiceActual];
-    const urlFallback = fotosOrigActual[indiceActual] || urlHd;
+    const urlFallback = fotosThumbActual[indiceActual] || '';
 
     const loader = new Image();
     loader.onload = () => {
@@ -471,7 +469,8 @@ function mostrarFoto(indice) {
     };
     loader.onerror = () => {
         if (token !== visorLoadToken) return;
-        if (loader.src !== urlFallback && urlFallback) {
+        if (urlFallback && !loader.dataset.thumbTried) {
+            loader.dataset.thumbTried = '1';
             loader.src = urlFallback;
         } else {
             visorSpinner.classList.remove('visible');
@@ -487,9 +486,9 @@ function abrirVisor(obra, indiceInicial = 0, disparador = null) {
 
     obraActual = obra;
     elementoDisparador = disparador;
-    fotosOrigActual = (obra.imagenes && obra.imagenes.length > 0) ? obra.imagenes : [obra.imagen_url];
-    fotosHdActual = fotosOrigActual.map(toHdUrl);
-    fotosThumbActual = fotosOrigActual.map(toThumbUrl);
+    const fuentes = (obra.imagenes && obra.imagenes.length > 0) ? obra.imagenes : [obra.imagen_url];
+    fotosHdActual = fuentes.map(toHdUrl);
+    fotosThumbActual = fuentes.map(toThumbUrl);
 
     visorTitulo.textContent = obra.titulo || 'Obra';
     if (obra.instagram_url) {
@@ -512,7 +511,6 @@ function abrirVisor(obra, indiceInicial = 0, disparador = null) {
             img.src = thumbUrl;
             img.alt = '';
             img.loading = 'lazy';
-            img.onerror = () => { img.onerror = null; img.src = fotosOrigActual[idx]; };
             btn.appendChild(img);
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -670,7 +668,6 @@ function crearTarjetaObra(obra, esPrioritaria) {
     const totalFotos = origImgs.length;
     const esGaleria = totalFotos > 1;
     const portadaThumb = thumbImgs[0];
-    const portadaFallback = origImgs[0];
     const tituloSafe = escapeHtml(obra.titulo);
     const artistaSafe = escapeHtml(obra.artista);
 
@@ -699,7 +696,7 @@ function crearTarjetaObra(obra, esPrioritaria) {
         const maxVisibles = 4;
         const thumbsHtml = thumbImgs.slice(0, maxVisibles).map((u, idx) => `
             <button type="button" class="mini-thumb-btn${idx === 0 ? ' activa' : ''}" data-idx="${idx}" aria-label="Previsualizar foto ${idx + 1} de ${tituloSafe}">
-                <img data-src="${escapeHtml(u)}" data-fallback="${escapeHtml(origImgs[idx])}" alt="" decoding="async">
+                <img data-src="${escapeHtml(u)}" alt="" decoding="async">
             </button>
         `).join('');
         const extraHtml = totalFotos > maxVisibles
@@ -753,33 +750,13 @@ function crearTarjetaObra(obra, esPrioritaria) {
 
     const mediaBox = item.querySelector('.obra-media');
     const imgPrincipal = item.querySelector('.foto-obra-click');
-    const avatarImg = item.querySelector('.avatar');
     const btnDetalles = item.querySelector('.obra-btn-detalles');
-
-    imgPrincipal.addEventListener('error', () => {
-        if (!imgPrincipal.dataset.fallback && !window.__DEMO_IMGS__) {
-            imgPrincipal.dataset.fallback = '1';
-            imgPrincipal.src = portadaFallback;
-        }
-    });
-    avatarImg.addEventListener('error', () => {
-        if (!avatarImg.dataset.fallback && obra.artista_foto && !window.__DEMO_AVATAR__) {
-            avatarImg.dataset.fallback = '1';
-            avatarImg.src = obra.artista_foto;
-        }
-    });
 
     let miniHidratadas = false;
     function hidratarMiniaturas() {
         if (miniHidratadas || !esGaleria) return;
         miniHidratadas = true;
         item.querySelectorAll('.mini-thumb-btn img[data-src]').forEach(img => {
-            img.addEventListener('error', () => {
-                if (!img.dataset.err && img.dataset.fallback && !window.__DEMO_IMGS__) {
-                    img.dataset.err = '1';
-                    img.src = img.dataset.fallback;
-                }
-            });
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
         });
@@ -957,14 +934,15 @@ async function cargar() {
 // 4. SECCIÓN DISPONIBLES/CURADOS Y PRE-COTIZADOR WHATSAPP
 // ============================================================
 (function iniciarSeccionesConversion() {
-    document.querySelectorAll('.spotlight-img[data-orig]').forEach(img => {
-        if (window.__DEMO_IMGS__) {
-            img.src = toThumbUrl(img.dataset.orig);
+    document.querySelectorAll('.spotlight-img').forEach(img => {
+        const srcActual = img.getAttribute('src');
+        if (window.__DEMO_IMGS__ && srcActual) {
+            img.src = toThumbUrl(srcActual);
         }
         img.addEventListener('error', () => {
-            if (!img.dataset.err && img.dataset.orig && !window.__DEMO_IMGS__) {
+            if (!img.dataset.err && srcActual && !window.__DEMO_IMGS__) {
                 img.dataset.err = '1';
-                img.src = img.dataset.orig;
+                img.src = toHdUrl(srcActual);
             }
         });
     });
@@ -975,8 +953,8 @@ async function cargar() {
             abrirVisor({
                 titulo: 'Diseños Disponibles · Flash',
                 estilo: 'Flash Disponible',
-                imagen_url: '/catalogo/imagenes/Df-HVtgJeWA_2.jpg',
-                imagenes: ['/catalogo/imagenes/Df-HVtgJeWA_2.jpg'],
+                imagen_url: '/catalogo/hd/Df-HVtgJeWA_2.webp',
+                imagenes: ['/catalogo/hd/Df-HVtgJeWA_2.webp'],
                 instagram_url: 'https://www.instagram.com/p/Df-HVtgJeWA/'
             }, 0, btnFlashHd);
         });

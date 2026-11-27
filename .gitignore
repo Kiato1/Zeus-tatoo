@@ -10,3 +10,5 @@ servidor/public/catalogo/*.py
 # Artefactos temporales / experimentales / bundle offline regenerable
 servidor/public/Black_Ink_Tattoo_Machine.mp4
 PRETO_LEONE_DEMO.html
+*.tmp
+*.bak

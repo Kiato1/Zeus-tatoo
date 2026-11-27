@@ -1,7 +1,0 @@
-[build]
-  publish = "servidor/public"
-
-[[redirects]]
-  from = "/api/catalogo"
-  to = "/catalogo/catalogo.json"
-  status = 200
